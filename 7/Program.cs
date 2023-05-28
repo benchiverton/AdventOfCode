@@ -1129,6 +1129,16 @@ var answer = directories
 
 Console.WriteLine(answer);
 
+var totalSpace = 70000000;
+var usedSpace = directories.Single(d => d.Key.Name == "/").Key.Size();
+var requiredSpace = 30000000 - (totalSpace - usedSpace);
+
+var answer2 = directories
+    .Where(d => d.Key.Size() >= requiredSpace)
+    .Min(d => d.Key.Size());
+
+Console.WriteLine(answer2);
+
 record Directory(string Name, Directory? Parent, Dictionary<string, Directory> Children, Dictionary<string, int> files)
 {
     public int Size() => Children.Sum(c => c.Value.Size()) + files.Sum(f => f.Value);
