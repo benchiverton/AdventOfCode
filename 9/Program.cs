@@ -2040,7 +2040,6 @@ static (int, int) Move((int, int) start, string direction)
     };
 }
 
-// diagonal?
 static (int, int) Adjust((int, int) leadingLoc, (int, int) trailingLoc)
 {
     if(Math.Abs(leadingLoc.Item1 - trailingLoc.Item1) < 2
